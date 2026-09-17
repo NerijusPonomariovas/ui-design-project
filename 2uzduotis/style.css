@@ -1,0 +1,101 @@
+body {
+  font-family: Tahoma, sans-serif;
+  background: #2b8aaf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+.calculator {
+  background: rgba(0, 0, 0, 0.623);
+  padding: 20px;
+  border-radius: 10px;
+  width: 90vw;
+  max-width: 350px;
+}
+
+/* Ekranas */
+.display {
+  background: #e9e9e9;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.display-result {
+  text-align: right;
+  font-size: clamp(18px, 5vw, 28px);
+  font-weight: bold;
+  min-height: 30px;
+  padding-right: 5px;
+}
+
+/* Mygtuku tinklelis */
+.keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.bottom-row{
+  grid-column: span 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+/* Mygtukai */
+.key {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  cursor: pointer;
+  border-radius: 50px;
+}
+
+.key:hover {
+  background: #e0e0e0;
+}
+
+.key-eq {
+  background: #ff9500;
+}
+
+.key-eq:hover {
+  background: #e08900;
+}
+
+.key-ac {
+  background: #a6acb1;
+}
+
+.key-ac:hover {
+  background: #6a6e72;
+}
+
+.key-del {
+  background: #a6acb1;
+}
+
+.key-del:hover {
+  background: #6a6e72;
+}
+
+.key-op {
+  background: #ff9500;
+}
+
+.key-op:hover
+{
+  background: #e08900;
+}
+.key-fn {
+  background: #a6acb1;
+}
+
+.key-fn:hover
+{
+  background: #6a6e72;
+}

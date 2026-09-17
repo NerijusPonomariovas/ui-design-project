@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coffe-Shop</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Headeris -->
+  <header>
+  <div class="wrap nav">
+    <a class="brand" href="#virsus">Coffe-Shop</a>
+    <nav>
+      <a href="#produktai">Produktai</a>
+      <a href="#kainos">Kainos</a>
+      <a href="#kontaktai">Kontaktai</a>
+    </nav>
+  </div>
+</header>
+
+  <!-- Hero -->
+  <main id="virsus">
+  <section class="hero" style="--hero:url('img/hero.jpg')">
+    <div class="wrap">
+    <h1>Coffe-Shop</h1>
+    <p>Kavinės parduotuvė</p>
+    <a class="btn" href="#produktai">Prekes</a>
+    </div>
+  </section>
+
+
+    <!-- Prekes -->
+  <section id="produktai" class="wrap">
+    <h2>Produktai</h2>
+    <div class="grid cards">
+
+    <article class="card">
+      <img src="img/espresso.jpg" alt="espresso">
+      <h3>Espresso</h3>
+      <p>Stipri kava (25-30 ml)</p>
+    </article>
+
+    <article class="card">
+      <img src="img/latte.jpg" alt="Latte">
+      <h3>Latte</h3>
+      <p>Švelni kava su pienu, tinkanti kasdienai.</p>
+    </article>
+
+    <article class="card">
+      <img src="img/cappuccino.jpg" alt="Cappuccino">
+      <h3>Cappuccino</h3>
+      <p>Klasikinis itališkas gėrimas su puria puta.</p>
+    </article>
+
+    <article class="card">
+      <img src="img/iced-coffee.jpg" alt="Šalta kava">
+      <h3>Šalta kava</h3>
+      <p>Gaivinanti kava su ledukais, puikiai tinka vasarai.</p>
+    </article>
+        </div>
+      </section>
+
+
+    <!-- Kainos -->
+    <section id="kainos" class="wrap">
+  <h2>Kainos</h2>
+  <table class="tbl">
+    <thead>
+    <tr>
+      <th>Produktas</th>
+      <th>Kaina (€)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Espresso</td>
+      <td>1.00</td>
+    </tr>
+    <tr>
+      <td>Cappuccino</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <td>Latte</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <td>Šalta kava</td>
+      <td>3.00</td>
+    </tr>
+    </tbody>
+  </table>
+</section>
+
+
+    <!-- Kontaktai -->
+    <section id="kontaktai" class="wrap grid cols-2">
+      <div>
+        <h2>Kontaktai</h2>
+        <p>
+          <strong>Tel.:</strong> <a href="tel:+37061234651">+370 612 34651</a><br>
+          <strong>Adresas:</strong> Vilniaus g. 1, Vilnius<br>
+          <strong>EL paštas: </strong><a href="mailto:info@coffe-shop.lt">info@coffe-shop.lt</a>
+        </p>
+      </div>
+
+
+      <div>
+        <h3>Susisiek!</h3>
+        <p>Užpildyk lentelėje savo duomenis ir parašyk mum</p>
+        <form>
+          <input placeholder="Vardas" required>
+          <input type="email" placeholder="El. paštas" required>
+          <textarea rows="6" placeholder="Žinutė"></textarea>
+          <button>Siųsti</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Poraste -->
+  <footer>
+    <div class="wrap">© 2025 Coffe-Shop | <a href="#virsus">Į pradžią</a></div>
+  </footer>
+</body>
+</html>

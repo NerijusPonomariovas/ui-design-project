@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atminties Žaidimas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Pradžios ekranas -->
+        <div id="startScreen" class="screen active">
+            <h1>Žaidimas</h1>
+            <p class="subtitle">Surask visas identiškų paveikslėlių poras!</p>
+            <div class="input-group">
+                <label for="playerName">Jūsų vardas:</label>
+                <input type="text" id="playerName" placeholder="Įveskite vardą" maxlength="20">
+            </div>
+            <div class="difficulty-selection">
+                <h3>Pasirinkite sudėtingumą:</h3>
+                <button class="btn btn-primary" onclick="startGame('easy')">
+                    Lengvas (12 kortų)
+                </button>
+                <button class="btn btn-primary" onclick="startGame('hard')">
+                    Sunkus (20 kortų)
+                </button>
+            </div>
+            <div class="leaderboard">
+                <h3>Geriausi rezultatai</h3>
+                <div id="leaderboardContent">
+                    <p class="no-results">Dar nėra rezultatų</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zaidimo ekranas -->
+        <div id="gameScreen" class="screen">
+            <div class="game-header">
+                <div class="game-info">
+                    <div class="info-item">
+                        <span class="label">Žaidėjas:</span>
+                        <span id="currentPlayer" class="value">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">Lygis:</span>
+                        <span id="currentDifficulty" class="value">-</span>
+                    </div>
+                </div>
+                <div class="game-stats">
+                    <div class="stat">
+                        <span class="stat-label">Ėjimai:</span>
+                        <span id="moves" class="stat-value">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Poros:</span>
+                        <span id="pairs" class="stat-value">0/0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Laikas:</span>
+                        <span id="timer" class="stat-value">00:00</span>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" onclick="quitGame()">Baigti žaidimą</button>
+            </div>
+            <div id="gameBoard" class="game-board"></div>
+        </div>
+
+        <!-- Pergalės ekranas -->
+        <div id="winScreen" class="screen">
+            <h1>Sveikiname!</h1>
+            <div class="win-stats">
+                <p>Jūs radote visas poras!</p>
+                <div class="final-stats">
+                    <div class="final-stat">
+                        <span class="label">Ėjimai:</span>
+                        <span id="finalMoves" class="value">-</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="label">Laikas:</span>
+                        <span id="finalTime" class="value">-</span>
+                    </div>
+                    <div class="final-stat">
+                        <span class="label">Įvertinimas:</span>
+                        <span id="rating" class="value rating">-</span>
+                    </div>
+                </div>
+            </div>
+            <div class="win-actions">
+                <button class="btn btn-primary" onclick="showStartScreen()">Grįžti į pradžią</button>
+                <button class="btn btn-secondary" onclick="restartGame()">Žaisti dar kartą</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

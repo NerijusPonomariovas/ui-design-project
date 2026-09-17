@@ -1,0 +1,144 @@
+/* =========================
+   Bazė ir kintamieji
+   ========================= */
+:root {
+  --bg:#faf7f3;
+  --ink:#222;
+  --brand:#8b5e34;
+  --line:#e6dfd6;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* =========================
+   Layout
+   ========================= */
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem;
+}
+
+header {
+  background: var(--brand);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .75rem 0;              /* buvo 30rem – per didelis */
+  background: var(--brand);
+}
+.nav a { color: #fff; margin-left: 1rem; }
+.brand { font-weight: 700; font-size: 1.3rem; color: #fff; }
+
+/* =========================
+   Hero
+   ========================= */
+.hero {
+  background: var(--hero) center 60% / cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 8rem 1rem;
+}
+.hero h1 { margin: 0; font-size: 2.5rem; }
+.hero p { margin: .5rem 0 1rem; }
+.btn {
+  display: inline-block;
+  background: var(--brand);
+  color: #fff;
+  padding: .6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  border: 0;
+}
+.btn:hover { filter: brightness(.9); }
+
+/* =========================
+   Grid / Cards
+   ========================= */
+.grid { display: grid; gap: 2rem; }
+.cards { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+.card {
+  background: #fff;
+  border-radius: 6px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0,0,0,.05);
+}
+.card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: .5rem;
+}
+
+@media (min-width: 760px) {
+  .grid.cols-2 { grid-template-columns: 1fr 1fr; }
+}
+
+/* =========================
+   Kainų lentele
+   ========================= */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+.tbl th, .tbl td {
+  border: 1px solid var(--line);
+  padding: .75rem;
+  text-align: center;
+}
+.tbl th {
+  background: var(--brand);
+  color: #fff;
+}
+
+/* =========================
+   Kontaktai
+   ========================= */
+form input, form textarea {
+       width:100%;
+       padding:.6rem;
+       margin:.3rem 0;
+       border:1px solid var(--line);
+       border-radius:8px
+
+}
+
+form button {
+        padding:.55rem .9rem;
+        border:1px solid var(--line);
+        border-radius:8px;
+        background:#5350502f
+
+}
+
+/* =========================
+   Footer
+   ========================= */
+
+footer {
+      border-top:1px solid var(--line);
+      text-align:center;
+      padding:1rem 0;
+      font-size:.95rem;
+      color:#555
+}

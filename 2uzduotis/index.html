@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skaičiuotuvas</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="calculator" aria-label="Skaičiuotuvas">
+
+    <!-- Ekranas -->
+    <section class="display" aria-live="polite">
+      <div id="result" class="display-result" aria-label="Rezultatas">0</div>
+    </section>
+
+    <!-- Mygtukai -->
+<form class="keys" onsubmit="return false">
+    <!-- DEL AC % ÷ -->
+    <button type="button" class="key key-del" data-act="del">DEL</button>
+    <button type="button" class="key key-ac" data-act="ac">AC</button>
+    <button type="button" class="key key-fn" data-act="percent">%</button>
+    <button type="button" class="key key-op" data-val="/">÷</button>
+
+    <!-- 7 8 9 ÷ -->
+    <button type="button" class="key" data-val="7">7</button>
+    <button type="button" class="key" data-val="8">8</button>
+    <button type="button" class="key" data-val="9">9</button>
+    <button type="button" class="key key-op" data-val="*" aria-label="Daugyba">×</button>
+
+    <!-- 4 5 6 × -->
+    <button type="button" class="key" data-val="4">4</button>
+    <button type="button" class="key" data-val="5">5</button>
+    <button type="button" class="key" data-val="6">6</button>
+     <button type="button" class="key key-op" data-val="-">−</button>
+
+    <!-- 1 2 3 − -->
+    <button type="button" class="key" data-val="1">1</button>
+    <button type="button" class="key" data-val="2">2</button>
+    <button type="button" class="key" data-val="3">3</button>
+    <button type="button" class="key key-op" data-val="+">+</button>
+
+    <!-- 0 . + = -->
+    <button type="button" class="key key-fn" data-act="fact">x!</button>
+    <button type="button" class="key key-zero" data-val="0">0</button>
+    <button type="button" class="key" data-val=".">.</button>
+    <button type="button" class="key key-eq" data-act="equals">=</button>
+
+    <div class="bottom-row">
+    <button type="button" class="key key-fn" data-act="sqrt">√x</button>
+    <button type="button" class="key key-fn" data-act="sq">x²</button>
+    <button type="button" class="key key-fn" data-act="pow">xʸ</button>
+
+</form>
+</main>
+<script src="index.js" defer></script>
+</body>
+</html>

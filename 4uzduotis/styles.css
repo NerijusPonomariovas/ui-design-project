@@ -1,0 +1,421 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* Ekranų valdymas */
+.screen {
+  display: none;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.screen.active {
+  display: block;
+}
+
+/* Headeriai */
+#startScreen h1,
+#winScreen h1 {
+  text-align: center;
+  color: #667eea;
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+/* Forma */
+.input-group {
+  margin-bottom: 30px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1em;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* levelio pasirinkimas */
+.difficulty-selection {
+  margin-bottom: 40px;
+}
+
+.difficulty-selection h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Mygtukai */
+.btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 12px;
+  transition: transform 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.btn-secondary {
+  background: #f5f5f5;
+  color: #333;
+  border: 2px solid #ddd;
+}
+
+/*  Leaderboard */
+.leaderboard {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #eee;
+}
+
+.leaderboard h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#leaderboardContent {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.leaderboard-item {
+  padding: 16px;
+  margin-bottom: 12px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  border-left: 5px solid #ddd;
+}
+
+.leaderboard-item.gold {
+  border-left-color: #ffd700;
+  background: #fffbea;
+}
+
+.leaderboard-item.silver {
+  border-left-color: #c0c0c0;
+}
+
+.leaderboard-item.bronze {
+  border-left-color: #cd7f32;
+}
+
+.no-results {
+  text-align: center;
+  color: #999;
+  padding: 30px;
+  font-style: italic;
+}
+
+/* Zaidimo header */
+.game-header {
+  margin-bottom: 30px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  gap: 10px;
+}
+
+.info-item .label {
+  color: #666;
+  font-weight: 600;
+}
+
+.info-item .value {
+  color: #333;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+/* Statistika */
+.game-stats {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+  padding: 18px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  color: white;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.95em;
+  margin-bottom: 8px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+/* Žaidimo lenta */
+.game-board {
+  display: grid;
+  gap: 15px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 15px;
+}
+
+.game-board.easy {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.game-board.hard {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+/* Kortelės */
+.card {
+  aspect-ratio: 1;
+  position: relative;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card:hover:not(.matched) {
+  transform: scale(1.05);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+  pointer-events: none;
+}
+
+.card.matched {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-front {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 4em;
+}
+
+.card-back {
+  background: white;
+  border: 4px solid #667eea;
+  transform: rotateY(180deg);
+  font-size: 3em;
+}
+
+/* Win ekranas */
+#winScreen {
+  text-align: center;
+}
+
+.win-stats {
+  margin-bottom: 40px;
+}
+
+.win-stats > p {
+  font-size: 1.4em;
+  color: #666;
+  margin-bottom: 35px;
+}
+
+.final-stats {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.final-stat {
+  padding: 25px;
+  background: #f9f9f9;
+  border-radius: 15px;
+  min-width: 180px;
+}
+
+.final-stat .label {
+  display: block;
+  color: #666;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.final-stat .value {
+  display: block;
+  color: #333;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.final-stat .value.rating {
+  font-size: 1.4em;
+}
+
+.win-actions {
+  display: flex;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.win-actions .btn {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .screen {
+    padding: 25px;
+  }
+
+  #startScreen h1,
+  #winScreen h1 {
+    font-size: 2.2em;
+  }
+
+  .game-board {
+    gap: 12px;
+  }
+
+  .game-board.easy {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .game-board.hard {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card-front {
+    font-size: 3em;
+  }
+
+  .card-back {
+    font-size: 2.2em;
+  }
+
+  .game-stats {
+    flex-wrap: wrap;
+  }
+
+  .game-info {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .win-actions,
+  .final-stats {
+    flex-direction: column;
+  }
+
+  .final-stat {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .screen {
+    padding: 20px;
+  }
+
+  #startScreen h1,
+  #winScreen h1 {
+    font-size: 1.8em;
+  }
+
+  .game-board {
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .card-front {
+    font-size: 2.5em;
+  }
+
+  .card-back {
+    font-size: 1.8em;
+  }
+
+  .stat-value {
+    font-size: 1.4em;
+  }
+}
